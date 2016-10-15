@@ -31,13 +31,14 @@ RUN apt-get update && \
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
-RUN npm install -g protractor@4.0.4 
+RUN npm install -g protractor@4.0.4
+RUN npm install jasmine-reporters@2.2.0
 
 # Install Selenium and Chrome driver
 RUN webdriver-manager update
 
 # Add a non-privileged user for running Protrator
-RUN adduser --home /project --uid 1100 \
+RUN adduser --home /project --uid 1000 \
   --disabled-login --disabled-password --gecos node node
 
 # Add main configuration file
